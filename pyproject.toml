@@ -1,0 +1,56 @@
+[project]
+name = "retrospective-feature-estimation"
+version = "0.1.0"
+description = "Retrospective Feature Estimation for Continual Learning"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "attrs>=25.3.0",
+    "beartype>=0.20.2",
+    "clearml>=2.0.0",
+    "cyclopts>=3.16.1",
+    "einops>=0.8.1",
+    "httpx>=0.28.1",
+    "jaxtyping>=0.3.2",
+    "loguru>=0.7.3",
+    "matplotlib>=3.10.3",
+    "numpy>=2.2.6",
+    "scikit-learn>=1.7.1",
+    "seaborn>=0.13.2",
+    "timm>=1.0.19",
+    "torch>=2.7.0",
+    "torchvision>=0.22.0",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "ty>=0.0.14",
+]
+
+[tool.mypy]
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "clearml.*",
+    "torchvision.*",
+    "tqdm.*"
+]
+ignore_missing_imports = true
+
+[tool.ruff.lint]
+ignore = ["F722", "F821"]
+select = ["I"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ty.rules]
+unused-ignore-comment = "ignore"
